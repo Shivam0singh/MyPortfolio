@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  * {
+    @apply border-[#333];
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom background styles */
+.custom-background {
+  background: linear-gradient(
+    135deg,
+    #270540 30%,
+    #190235 50%,
+    #1f022e 80%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  filter: brightness(1.05); 
+  background-blend-mode: overlay;
+}
+
+/* Navigation styles */
+.nav-items-mobile {
+  font-size: 1.2rem;
+}
+
+.nav-items {
+  @apply px-2 py-1.5 rounded-full text-white/80 font-semibold;
+  padding: 8px 20px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.nav-items::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  width: 70%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.nav-items:hover {
+  color: #ff6347;
+  transform: translateY(-2px);
+}
+
+.nav-items:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Hero section animations */
+@keyframes colorChange {
+  0% {
+    color: #d0bde2;
+  }
+  100% {
+    color: #33093a;
+  }
+}
+
+.hero-text {
+  margin-bottom: 20px;
+}
+
+/* Connect with me animations */
+.connect-animation {
+  position: relative;
+  border: 2px solid transparent;
+  padding: 10px;
+  border-radius: 10px;
+  border-image: linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgba(181, 150, 150, 0.281)) 1;
+  animation: border-move 3s infinite linear;
+  display: inline-block;
+}
+
+@keyframes border-move {
+  0% {
+    border-image-source: linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgba(22, 10, 10, 0.632));
+  }
+  100% {
+    border-image-source: linear-gradient(450deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  }
+}
+
+/* Desktop navigation animations */
+.desktop-navigation-animations {
+  box-shadow: 0rem 0rem 0.6875rem 0.0625rem rgba(216, 211, 211, 0.8);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add this to ensure all content has proper z-index */
+main, section, header, footer {
+  position: relative;
+  z-index: 1;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Add this to your globals.css */
+html {
+  scroll-behavior: smooth;
+}
