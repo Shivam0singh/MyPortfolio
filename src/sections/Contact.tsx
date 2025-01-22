@@ -180,7 +180,7 @@ export const ContactSection = () => {
             href="m" 
             className="text-purple-400 hover:text-purple-300 transition-colors"
           >
-            your.email@example.com
+            shivammsyingh@gmail.com
           </a>
         </motion.div>
       </motion.div>
