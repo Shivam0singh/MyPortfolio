@@ -71,7 +71,7 @@ export const HeroSection = () => {
           >
             {/* Animated Text */}
             <motion.div
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 flex flex-wrap gap-x-4 justify-center lg:justify-start"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 flex flex-wrap gap-x-4 justify-center lg:justify-start"
               variants={containerVariants}
             >
               {sentence.map((word, index) => (
@@ -96,7 +96,7 @@ export const HeroSection = () => {
             {/* Buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-16"
+              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-4"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
