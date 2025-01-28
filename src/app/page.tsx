@@ -10,9 +10,9 @@ export default function Home() {
       project: "Art Asta",
       title: "Art Portfolio and Auction Platform",
       bio: "Developed a platform enabling artists to showcase portfolios, auction artwork, and streamline custom art requests through 'art on demand,' fostering engagement with competitive bidding and improved communication.",
-      link: "https://art-asta.netlify.app/",
+      link: "https://artasta.netlify.app/",
       image: "/assets/images/art-asta.jpeg",
-    },
+    },  
     {
       project: "Kisan",
       title: "Agriculture Empowerment Platform",

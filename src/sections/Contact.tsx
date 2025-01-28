@@ -4,8 +4,6 @@ import { motion } from "framer-motion";
 import { FiSend, FiMail, FiUser, FiMessageSquare } from "react-icons/fi";
 
 export const ContactSection = () => {
-  // pages/form.js
-
   // State to store form input values
   const [formData, setFormData] = useState({
     name: "",
@@ -15,6 +13,8 @@ export const ContactSection = () => {
 
   // State to handle form submission status
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   // Handle form input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -29,13 +29,38 @@ export const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
+    setIsSuccess(false);
 
-    // Simulate form submission
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
+    // Prepare form data for Web3Forms
+    const formPayload = {
+      ...formData,
+      access_key: "4940ca91-0aca-4b73-abd0-47e9b8376d03", // Replace with your Web3Forms access key
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formPayload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSuccess(true);
+        setFormData({ name: "", email: "", message: "" }); // Clear form on success
+      } else {
+        setError(result.message || "Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setError("Failed to submit the form. Please check your connection and try again.");
+    } finally {
       setIsSubmitting(false);
-      setFormData({ name: "", email: "", message: "" });
-    }, 2000);
+    }
   };
 
   const containerVariants = {
@@ -135,6 +160,24 @@ export const ContactSection = () => {
             </div>
           </motion.div>
 
+          {/* Success or Error Message */}
+          {isSuccess && (
+            <motion.div 
+              className="text-center text-green-400"
+              variants={itemVariants}
+            >
+              Message sent successfully! 🎉
+            </motion.div>
+          )}
+          {error && (
+            <motion.div 
+              className="text-center text-red-400"
+              variants={itemVariants}
+            >
+              {error}
+            </motion.div>
+          )}
+
           <motion.div 
             variants={itemVariants}
             className="flex justify-center"
@@ -177,7 +220,7 @@ export const ContactSection = () => {
         >
           <p>Or reach out directly via email at:</p>
           <a 
-            href="m" 
+            href="mailto:shivammsyingh@gmail.com" 
             className="text-purple-400 hover:text-purple-300 transition-colors"
           >
             shivammsyingh@gmail.com
@@ -186,4 +229,4 @@ export const ContactSection = () => {
       </motion.div>
     </section>
   );
-}
+};

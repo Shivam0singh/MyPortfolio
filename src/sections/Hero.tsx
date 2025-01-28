@@ -6,11 +6,11 @@ import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
 import { saveAs } from 'file-saver';
 import { smoothScrollTo } from '@/utils/smoothScroll';
 
-const sentence = ["Hello,", "I'm", "a", "Passionate", "Web", "Developer"];
+const sentence = ["Hi,", "I'm","Shivam", "a", "Creative", "Full-Stack", "Web", "Developer", "&", "Tech", "Enthusiast"];
 
 const socialLinks = [
-  { icon: FaGithub, href: "https://github.com/your-username", label: "GitHub" },
-  { icon: FaLinkedin, href: "https://linkedin.com/in/your-username", label: "LinkedIn" },
+  { icon: FaGithub, href: "https://github.com/Shivam0singh", label: "GitHub" },
+  { icon: FaLinkedin, href: "https://www.linkedin.com/in/shivam-11singh/", label: "LinkedIn" },
 ];
 
 export const HeroSection = () => {
@@ -90,8 +90,7 @@ export const HeroSection = () => {
               variants={itemVariants}
               className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0"
             >
-              Turning ideas into beautiful, functional, and user-friendly web
-              experiences. Let's build something amazing together!
+              Turning ideas into beautiful, functional, and user-friendly web experiences. Let's build something amazing together!
             </motion.p>
 
             {/* Buttons */}
